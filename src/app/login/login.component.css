@@ -1,0 +1,29 @@
+.gradient-bg {
+  height: 100%;
+  /* Full height to center card */
+  background: linear-gradient(to bottom, white, #cfe8ff);
+  /* White to light blue */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* Add some padding to avoid content overflow */
+}
+
+.card {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Light shadow */
+}
+
+.containers {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

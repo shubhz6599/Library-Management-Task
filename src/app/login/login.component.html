@@ -1,0 +1,33 @@
+<div class="containers vh-100 d-flex justify-content-center align-items-center">
+  <div class="gradient-bg w-100 d-flex flex-column align-items-center">
+
+    <!-- Header Section -->
+    <h2 class="text-primary mb-4">Digital Library</h2>
+
+    <!-- Form Card Div in the Center -->
+    <div class="card p-4 w-50">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 d-flex align-items-center">
+          <label for="username" class="form-label w-25" style="color: black;">Username</label>
+          <input type="text" id="username" class="form-control w-75" formControlName="username" />
+          <div *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched" class="text-danger">
+            Username must be at least 5 characters.
+          </div>
+        </div>
+
+        <div class="mb-3 d-flex align-items-center">
+          <label for="password" class="form-label w-25" style="color: black;">Password</label>
+          <input type="password" id="password" class="form-control w-75" formControlName="password" />
+          <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched" class="text-danger">
+            Password must be at least 5 characters.
+          </div>
+        </div>
+
+        <button type="submit" class="btn mt-3 w-100" [disabled]="loginForm.invalid"
+          style="background-color: #4472C4; color: white;">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

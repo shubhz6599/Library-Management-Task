@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Calibri', sans-serif;
+}
+
+h2 {
+  color: #2F5597 !important;
+}
+
+.btn {
+  background-color: #4472C4;
+  color: #4472C4;
+}

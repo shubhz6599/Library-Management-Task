@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row bg-info text-white p-3">
+    <h1 class="text-center w-100">View Books</h1>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <table class="table table-bordered table-striped">
+        <thead class="table-light">
+          <tr>
+            <th>ISBN</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Publication Date</th>
+            <th>Qty.</th>
+            <th>Price</th>
+            <th>Branch</th>
+            <!-- <th>Details</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books">
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.bookName }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publication }}</td>
+            <td>{{ book.qty }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.branch }}</td>
+            <!-- <td>{{ book.details }}</td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

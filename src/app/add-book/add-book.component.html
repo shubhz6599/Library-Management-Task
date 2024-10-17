@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <div class="row bg-primary text-white p-3">
+    <h1 class="text-center w-100">Add Book</h1>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+        <div class="card p-4">
+
+          <!-- ISBN -->
+          <div class="form-group mb-4">
+            <label for="isbn" class="form-label">ISBN Number</label>
+            <input type="text" id="isbn" class="form-control" formControlName="isbn" appNumbersOnly />
+            <div *ngIf="addBookForm.controls['isbn'].touched && addBookForm.controls['isbn'].invalid"
+              class="invalid-feedback d-block mt-1">
+              <span *ngIf="addBookForm.controls['isbn'].errors?.['required']">ISBN is required.</span>
+              <span *ngIf="addBookForm.controls['isbn'].errors?.['minlength']">ISBN must be at least 5
+                characters.</span>
+              <span *ngIf="addBookForm.controls['isbn'].errors?.['maxlength']">ISBN cannot exceed 50 characters.</span>
+            </div>
+          </div>
+
+          <!-- Book Name -->
+          <div class="form-group mb-4">
+            <label for="bookName" class="form-label">Book Name</label>
+            <input type="text" id="bookName" class="form-control" formControlName="bookName" appStringOnly />
+            <div *ngIf="addBookForm.controls['bookName'].touched && addBookForm.controls['bookName'].invalid"
+              class="invalid-feedback d-block mt-1">
+              <span *ngIf="addBookForm.controls['bookName'].errors?.['required']">Book Name is required.</span>
+              <span *ngIf="addBookForm.controls['bookName'].errors?.['minlength']">Must be at least 5 characters.</span>
+              <span *ngIf="addBookForm.controls['bookName'].errors?.['maxlength']">Cannot exceed 50 characters.</span>
+            </div>
+          </div>
+
+          <!-- Author -->
+          <div class="form-group mb-4">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" id="author" class="form-control" formControlName="author" appStringOnly />
+            <div *ngIf="addBookForm.controls['author'].touched && addBookForm.controls['author'].invalid"
+              class="invalid-feedback d-block mt-1">
+              <span *ngIf="addBookForm.controls['author'].errors?.['required']">Author is required.</span>
+              <span *ngIf="addBookForm.controls['author'].errors?.['maxlength']">Cannot exceed 50 characters.</span>
+            </div>
+          </div>
+
+          <!-- Publication -->
+          <div class="form-group mb-4">
+            <label for="publication" class="form-label">Publication</label>
+            <input type="text" id="publication" class="form-control" formControlName="publication" appStringOnly />
+            <div *ngIf="addBookForm.controls['publication'].touched && addBookForm.controls['publication'].invalid"
+              class="invalid-feedback d-block mt-1">
+              <span *ngIf="addBookForm.controls['publication'].errors?.['required']">Publication is required.</span>
+              <span *ngIf="addBookForm.controls['publication'].errors?.['minlength']">Must be at least 5
+                characters.</span>
+              <span *ngIf="addBookForm.controls['publication'].errors?.['maxlength']">Cannot exceed 50
+                characters.</span>
+            </div>
+          </div>
+
+          <!-- Book Details -->
+          <div class="form-group mb-4">
+            <label for="bookDetails" class="form-label">Book Details</label>
+            <textarea id="bookDetails" class="form-control" formControlName="bookDetails" rows="3"></textarea>
+            <div *ngIf="addBookForm.controls['bookDetails'].touched && addBookForm.controls['bookDetails'].invalid"
+              class="invalid-feedback d-block mt-1">
+              <span *ngIf="addBookForm.controls['bookDetails'].errors?.['required']">Book details are required.</span>
+              <span *ngIf="addBookForm.controls['bookDetails'].errors?.['minlength']">Must be at least 5
+                characters.</span>
+              <span *ngIf="addBookForm.controls['bookDetails'].errors?.['maxlength']">Cannot exceed 250
+                characters.</span>
+            </div>
+          </div>
+
+          <!-- Quantity -->
+          <div class="form-group mb-4">
+            <label for="qty" class="form-label">Quantity</label>
+            <input type="text" id="qty" class="form-control" formControlName="qty" appNumbersOnly />
+            <div *ngIf="addBookForm.controls['qty'].touched && addBookForm.controls['qty'].invalid"
+              class="invalid-feedback d-block mt-1">
+              <span *ngIf="addBookForm.controls['qty'].errors?.['required']">Quantity is required.</span>
+              <span *ngIf="addBookForm.controls['qty'].errors?.['minlength']">Must be at least 1 digit.</span>
+              <span *ngIf="addBookForm.controls['qty'].errors?.['maxlength']">Cannot exceed 5 digits.</span>
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="form-group mb-4">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" id="price" class="form-control" formControlName="price" appNumbersOnly />
+            <div *ngIf="addBookForm.controls['price'].touched && addBookForm.controls['price'].invalid"
+              class="invalid-feedback d-block mt-1">
+              <span *ngIf="addBookForm.controls['price'].errors?.['required']">Price is required.</span>
+              <span *ngIf="addBookForm.controls['price'].errors?.['minlength']">Must be at least 2 digits.</span>
+              <span *ngIf="addBookForm.controls['price'].errors?.['maxlength']">Cannot exceed 5 digits.</span>
+            </div>
+          </div>
+
+          <!-- Branch -->
+          <div class="form-group mb-4">
+            <label for="branch" class="form-label">Branch</label>
+            <select id="branch" class="form-select" formControlName="branch">
+              <option value="It">IT</option>
+              <option value="Civil">Civil</option>
+              <option value="Mechanical">Mechanical</option>
+            </select>
+            <div *ngIf="addBookForm.controls['branch'].touched && addBookForm.controls['branch'].invalid"
+              class="invalid-feedback d-block mt-1">
+              Branch is required.
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn w-100" [disabled]="addBookForm.invalid">Submit</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

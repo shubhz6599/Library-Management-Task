@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="bg-primary text-white p-3">
+    <h2 class="text-center">Dashboard</h2>
+  </div>
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 bg-light sidebar">
+      <ul class="list-group">
+        <li class="list-group-item d-flex align-items-center" routerLink="/add-book" routerLinkActive="active">
+          <i class="bi bi-plus-lg me-2 fs-5"></i>
+          <a class="text-decoration-none">Add Book</a>
+        </li>
+        <li class="list-group-item d-flex align-items-center" routerLink="/delete-book" routerLinkActive="active">
+          <i class="bi bi-x me-2 fs-5"></i>
+          <a class="text-decoration-none">Delete Book</a>
+        </li>
+        <li class="list-group-item d-flex align-items-center" routerLink="/view-books" routerLinkActive="active">
+          <i class="bi bi-journal me-2 fs-5"></i>
+          <a class="text-decoration-none">View Books</a>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <i class="bi bi-person me-2 fs-5"></i>
+          <a class="text-decoration-none">Add Student</a>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <i class="bi bi-journal-plus me-2 fs-5"></i>
+          <a class="text-decoration-none">Issue Book</a>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <i class="bi bi-arrow-return-left me-2 fs-5"></i>
+          <a class="text-decoration-none">Return Book</a>
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <i class="bi bi-back me-2 fs-5"></i>
+          <a class="text-decoration-none">Report</a>
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9">
+
+
+      <!-- Charts Section -->
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <h6 class="text-center">No. Of Books</h6>
+
+          <canvas id="barChart"></canvas>
+        </div>
+        <div class="col-md-6">
+          <h6 class="text-center">No. Of Books</h6>
+          <canvas id="pieChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Book Summary -->
+      <h6>Issued Book Summary</h6>
+      <table class="table table-bordered">
+        <thead class="table-primary">
+          <tr>
+            <th>ISBN</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Publication</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Branch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books">
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.bookName }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publication }}</td>
+            <td>{{ book.qty }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.branch }}</td>
+          </tr>
+          <tr *ngIf="books.length === 0">
+            <td colspan="7" class="text-center">No books available</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row bg-primary text-white p-3">
+    <h1 class="text-center w-100">Delete Book</h1>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-lg-10 col-md-12">
+      <table>
+        <thead>
+          <tr>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Publication</th>
+            <th>Qty.</th>
+            <th>Price</th>
+            <th>Branch</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books; let i = index">
+            <td>{{ book.bookName }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publication }}</td>
+            <td>{{ book.qty }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.branch }}</td>
+            <td><button (click)="deleteBook(i)">Delete</button></td> <!-- Call deleteBook on click -->
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

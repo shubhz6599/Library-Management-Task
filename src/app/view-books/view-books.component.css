@@ -1,0 +1,18 @@
+.container-fluid {
+  height: 100vh;
+  overflow-y: auto;
+  /* Ensure scrolling if content overflows */
+}
+
+.table {
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #e9ecef;
+}
